@@ -18,13 +18,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private    DrawerLayout mDrawerLayout;
+    Banner banner;
+    private ArrayList<Integer> imageList;
+    private DrawerLayout mDrawerLayout;
 
     private Sort[] sorts = {new Sort("景点", R.drawable.car,1),
             new Sort("美食", R.drawable.food,2),
@@ -35,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Sort> sortList = new ArrayList<>();
 
+
     private MainAdapter adapter;
 
     private SwipeRefreshLayout swipeRefresh;
@@ -43,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -80,6 +88,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
+
+        //Banner
+        initImages();
 
 
         //RecyclerView
@@ -154,4 +167,25 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
+
+    private void initImages(){
+        Banner banner = findViewById(R.id.banner);
+
+        imageList = new ArrayList<Integer>();
+        imageList.add(R.drawable.banner1);
+        imageList.add(R.drawable.banner2);
+        imageList.add(R.drawable.banner3);
+        imageList.add(R.drawable.banner4);
+        imageList.add(R.drawable.banner5);
+
+
+        //设置图片加载器
+        banner.setImageLoader(new GlideImageLoader());
+        //设置图片集合
+        banner.setImages(imageList);
+        banner.setDelayTime(5000);
+        //banner设置方法全部调用完毕时最后调用
+        banner.start();
+    }
+
 }

@@ -17,7 +17,7 @@ import java.util.List;
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder>{
 
     private Context mContext;
-    private List<Shop> mshopList;
+    private List<Shop> mShopList;
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         CardView cardView;
@@ -33,7 +33,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder>{
     }
 
     public ShopAdapter(List<Shop> shopList){
-        mshopList = shopList;
+        mShopList = shopList;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder>{
             @Override
             public void onClick(View v){
                 int position = holder.getAdapterPosition();
-                Shop shop = mshopList.get(position);
+                Shop shop = mShopList.get(position);
                 Intent intent = new Intent(mContext, ShopDetail.class);
                 intent.putExtra(ShopDetail.SHOP_NAME,shop.getName());
                 intent.putExtra(ShopDetail.SHOP_IMAGE_ID,shop.getImageId());
@@ -61,7 +61,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(ShopAdapter.ViewHolder holder, int position){
-        Shop shop = mshopList.get(position);
+        Shop shop = mShopList.get(position);
         holder.shopName.setText(shop.getName());
 
         Glide.with(mContext).load(shop.getImageId()).into(holder.shopImage);
@@ -69,6 +69,6 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder>{
 
     @Override
     public int getItemCount(){
-        return mshopList.size();
+        return mShopList.size();
     }
 }

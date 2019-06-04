@@ -32,11 +32,32 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" >
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_view"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:image_scale_type="center_crop"
+                    app:scroll_time="1500"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+
         </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/top"

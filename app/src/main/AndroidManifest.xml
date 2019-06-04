@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.haikou">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,23 +18,35 @@
         <activity android:name=".SceneDetail"
             android:theme="@style/SceneDetailTheme">
         </activity>
-        <activity android:name=".FoodMain"
-            android:theme="@style/FoodMainTheme">
+        <activity android:name=".FoodMain">
         </activity>
-        <activity android:name=".SceneMain"
-            android:theme="@style/SceneMainTheme">
+        <activity android:name=".SceneMain">
         </activity>
-        <activity android:name=".ShopMain"
-            android:theme="@style/ShopMainTheme">
+        <activity android:name=".ShopMain">
         </activity>
         <activity android:name=".ShopDetail"
             android:theme="@style/ShopDetailTheme">
+        </activity>
+        <activity android:name=".AmuseMain">
+        </activity>
+        <activity android:name=".AmuseDetail"
+            android:theme="@style/AmuseDetailTheme">
+        </activity>
+        <activity android:name=".ApartmentMain">
+        </activity>
+        <activity android:name=".ApartmentDetail"
+            android:theme="@style/ApartmentDetailTheme">
+        </activity>
+        <activity android:name=".HospitalDetail"
+            android:theme="@style/HosptialDetailTheme">
+        </activity>
+        <activity android:name=".HospitalMain">
         </activity>
 
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

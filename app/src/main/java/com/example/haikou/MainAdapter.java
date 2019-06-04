@@ -11,7 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.youth.banner.BannerConfig;
+import com.youth.banner.Transformer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
@@ -42,7 +45,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         if (mContext == null) {
             mContext = parent.getContext();
         }
-        View view = LayoutInflater.from(mContext).inflate(R.layout.sort_item,
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_sort,
                 parent, false);
         final ViewHolder holder = new ViewHolder(view);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -66,10 +69,26 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                         mContext.startActivity(intent);
                         break;
 
+                        case 3:
+                        intent = new Intent(mContext, HospitalMain.class);
+                        mContext.startActivity(intent);
+                        break;
+
                         case 4:
                         intent = new Intent(mContext, ShopMain.class);
                         mContext.startActivity(intent);
                         break;
+
+                        case 5:
+                        intent = new Intent(mContext, ApartmentMain.class);
+                        mContext.startActivity(intent);
+                        break;
+
+                        case 6:
+                        intent = new Intent(mContext, AmuseMain.class);
+                        mContext.startActivity(intent);
+                        break;
+
                 }
 
             }
@@ -88,5 +107,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public int getItemCount() {
         return mSortList.size();
     }
+
 
 }
