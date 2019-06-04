@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="SceneDetialTheme" parent="AppTheme">
+    </style>
+    <style name="FoodMainTheme" parent="AppTheme">
+    </style>
+    <style name="SceneMainTheme" parent="AppTheme">
+    </style>
+    <style name="ShopMainTheme" parent="AppTheme">
+    </style>
+    <style name="ShopDetailTheme" parent="AppTheme">
+    </style>
+    <style name="FoodDetailTheme" parent="AppTheme">
+    </style>
+    <style name="HospitalMainTheme" parent="AppTheme">
+    </style>
+    <style name="HosptialDetailTheme" parent="AppTheme">
+    </style>
+    <style name="ApartmentMainTheme" parent="AppTheme">
+    </style>
+    <style name="ApartmentDetailTheme" parent="AppTheme">
+    </style>
+    <style name="AmuseMainTheme" parent="AppTheme">
+    </style>
+    <style name="AmuseDetailTheme" parent="AppTheme">
+    </style>
+</resources>

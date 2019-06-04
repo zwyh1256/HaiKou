@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.haikou">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".FoodDetail"
+            android:theme="@style/FoodDetailTheme">
+        </activity>
+        <activity android:name=".SceneDetail"
+            android:theme="@style/SceneDetailTheme">
+        </activity>
+        <activity android:name=".FoodMain"
+            android:theme="@style/FoodMainTheme">
+        </activity>
+        <activity android:name=".SceneMain"
+            android:theme="@style/SceneMainTheme">
+        </activity>
+        <activity android:name=".ShopMain"
+            android:theme="@style/ShopMainTheme">
+        </activity>
+        <activity android:name=".ShopDetail"
+            android:theme="@style/ShopDetailTheme">
+        </activity>
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

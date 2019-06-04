@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="FoodDetailTheme" parent="AppTheme">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+
+    <style name="SceneDetailTheme" parent="AppTheme">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+
+    <style name="SceneMainTheme" parent="AppTheme">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+
+    <style name="FoodMainTheme" parent="AppTheme">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+
+    <style name="ShopMainTheme" parent="AppTheme">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+    <style name="ShopDetailTheme" parent="AppTheme">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+    <style name="HospitalMainTheme" parent="AppTheme">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+    <style name="HosptialDetailTheme" parent="AppTheme">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+    <style name="ApartmentMainTheme" parent="AppTheme">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+    <style name="ApartmentDetailTheme" parent="AppTheme">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+    <style name="AmuseMainTheme" parent="AppTheme">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+    <style name="AmuseDetailTheme" parent="AppTheme">
+        <item name="android:statusBarColor">
+            @android:color/transparent
+        </item>
+    </style>
+
+</resources>
