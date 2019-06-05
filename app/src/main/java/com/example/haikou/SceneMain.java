@@ -54,14 +54,8 @@ public class SceneMain extends AppCompatActivity {
         top.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Snackbar.make(view,"Data deleted", Snackbar.LENGTH_SHORT)
-                        .setAction("Undo",new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v){
-                                Toast.makeText(SceneMain.this,"Data restored",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        }).show();
+                RecyclerView recyclerView = (RecyclerView)findViewById(R.id.scene_recycler_view);
+                recyclerView.smoothScrollToPosition(0);
             }
         });
 

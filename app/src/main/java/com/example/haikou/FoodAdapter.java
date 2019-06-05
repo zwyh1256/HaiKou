@@ -36,6 +36,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
         mFoodList = foodList;
     }
 
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent,int viewType){
         if (mContext == null){
@@ -71,4 +72,6 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder> {
     public int getItemCount(){
         return mFoodList.size();
     }
+
+
 }

@@ -1,5 +1,7 @@
 package com.example.haikou;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -21,6 +23,8 @@ import android.widget.Toast;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
+import com.youth.banner.listener.OnBannerClickListener;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,20 +60,15 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //TopButton
-        FloatingActionButton top = (FloatingActionButton)findViewById(R.id.top);
-        top.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Snackbar.make(view,"Data deleted",Snackbar.LENGTH_SHORT)
-                        .setAction("Undo",new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v){
-                                Toast.makeText(MainActivity.this,"Data restored",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        }).show();
-            }
-        });
+//        FloatingActionButton top = (FloatingActionButton)findViewById(R.id.top);
+//        top.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View view){
+//                RecyclerView recyclerView = (RecyclerView)findViewById(R.id.food_recycler_view);
+//                recyclerView.smoothScrollToPosition(0);
+//            }
+//        });
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         NavigationView navView = (NavigationView)findViewById(R.id.nav_view);
@@ -82,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         }
         navView.setCheckedItem(R.id.nav_home);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 mDrawerLayout.closeDrawers();
@@ -172,11 +172,12 @@ public class MainActivity extends AppCompatActivity {
         Banner banner = findViewById(R.id.banner);
 
         imageList = new ArrayList<Integer>();
-        imageList.add(R.drawable.banner1);
-        imageList.add(R.drawable.banner2);
-        imageList.add(R.drawable.banner3);
-        imageList.add(R.drawable.banner4);
-        imageList.add(R.drawable.banner5);
+        imageList.add(R.drawable.banner6);
+        imageList.add(R.drawable.banner7);
+        imageList.add(R.drawable.banner8);
+        imageList.add(R.drawable.banner9);
+        imageList.add(R.drawable.banner10);
+        imageList.add(R.drawable.banner11);
 
 
         //设置图片加载器
@@ -186,6 +187,26 @@ public class MainActivity extends AppCompatActivity {
         banner.setDelayTime(5000);
         //banner设置方法全部调用完毕时最后调用
         banner.start();
+
+//        banner.setOnBannerListener(new OnBannerListener() {
+//            @Override5
+//            public void OnBannerClick(int position) {
+//                Uri parse = Uri.parse("https://www.baidu.com/");
+//                Intent intent = new Intent(Intent.ACTION_VIEW,parse);
+//                startActivity(intent);
+//            }
+//        });
+        banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+
+                Intent intent = new Intent(MainActivity.this,WebViewActivity.class);
+                intent.putExtra("urlBaidu","https://www.baidu.com");
+                startActivity(intent);
+            }
+        });
+
+
     }
 
 }

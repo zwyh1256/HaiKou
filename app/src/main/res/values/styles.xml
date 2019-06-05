@@ -33,4 +33,7 @@
     </style>
     <style name="AmuseDetailTheme" parent="AppTheme">
     </style>
+
+    <style name="LauncherActivityTheme" parent="AppTheme">
+    </style>
 </resources>

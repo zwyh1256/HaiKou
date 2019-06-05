@@ -5,17 +5,18 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="Home" />
+            android:title="主页" />
 
         <item
-            android:id="@+id/nav_friend"
-            android:icon="@drawable/ic_friend"
-            android:title="Friends" />
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_setting"
+            android:title="设置" />
 
         <item
-            android:id="@+id/nav_location"
-            android:icon="@drawable/ic_address"
-            android:title="Location" />
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_about"
+            android:title="关于" />
+
     </group>
 
 </menu>

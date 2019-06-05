@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="hahaha@gmial.com"
+        android:text="zwyh1256@gmail.com"
         android:textColor="#FFF"
         android:textSize="14sp"
         />
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/mail"
-        android:text="Surface"
+        android:text="W_"
         android:textColor="#FFF"
         android:textSize="14sp"/>
 

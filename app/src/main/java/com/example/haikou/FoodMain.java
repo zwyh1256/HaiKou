@@ -1,5 +1,7 @@
 package com.example.haikou;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -11,11 +13,15 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -50,20 +56,7 @@ public class FoodMain extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton top = (FloatingActionButton)findViewById(R.id.top);
-        top.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Snackbar.make(view,"Data deleted", Snackbar.LENGTH_SHORT)
-                        .setAction("Undo",new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v){
-                                Toast.makeText(FoodMain.this,"Data restored",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        }).show();
-            }
-        });
+        ScrollTop();
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -74,14 +67,20 @@ public class FoodMain extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_1);
         }
+
+
         navView.setCheckedItem(R.id.nav_home);
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
                 mDrawerLayout.closeDrawers();
                 return true;
             }
         });
+
+
 
         initFoods();                                                                                    //Food Adapter
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.food_recycler_view);
@@ -89,6 +88,7 @@ public class FoodMain extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         adapter = new FoodAdapter(foodList);
         recyclerView.setAdapter(adapter);
+
 
         //Swipe Refresh
         swipeRefresh = (SwipeRefreshLayout)findViewById(R.id.swipe_refresh);                        //拿到实例
@@ -130,6 +130,65 @@ public class FoodMain extends AppCompatActivity {
             foodList.add(foods[index]);
         }
     }
+
+    private void ScrollTop(){
+        FloatingActionButton top = (FloatingActionButton)findViewById(R.id.top);
+        top.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                RecyclerView recyclerView = (RecyclerView)findViewById(R.id.food_recycler_view);
+                recyclerView.smoothScrollToPosition(0);
+            }
+        });
+    }
+
+//    private Menu mHome,mSetting,mAbout;
+//    private void initLeftMenu() {
+//        mHome = (Menu) findViewById(R.id.nav_home);
+//        mSetting = (Menu) findViewById(R.id.nav_setting);
+//        mAbout = (Menu) findViewById(R.id.nav_about);
+//
+//        mHome.setOnClickListener(onLeftMenuClickListener);
+//        mSetting.setOnClickListener(onLeftMenuClickListener);
+//        mAbout.setOnClickListener(onLeftMenuClickListener);
+//
+//        mHome.setSelected(true);
+//    }
+//
+//    private View.OnClickListener onLeftMenuClickListener = new View.OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            if (currentSelectItem != v.getId()) {//防止重复点击
+//                currentSelectItem=v.getId();
+//                noItemSelect();
+//
+//                switch (v.getId()) {
+//                    case R.id.rl_home:
+//                        rlHome.setSelected(true);
+//                        contentFragment.setContent("这是首页");
+//                        break;
+//                    case R.id.rl_gift:
+//                        rlGift.setSelected(true);
+//                        contentFragment.setContent("这是礼物兑换");
+//                        break;
+//                    case R.id.rl_share:
+//                        rlShare.setSelected(true);
+//                        contentFragment.setContent("这是我的分享");
+//                        break;
+//                }
+//                mDrawerLayout.closeDrawer(Gravity.LEFT);
+//            }
+//        }
+//    };
+//
+//    private void noItemSelect(){
+//        rlHome.setSelected(false);
+//        rlGift.setSelected(false);
+//        rlShare.setSelected(false);
+//    }
+
+
+
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
