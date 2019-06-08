@@ -2,8 +2,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.haikou">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <!--<uses-permission android:name="android.permission.INTERNET" />-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
+    <!--允许联网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--获取GSM（2g）、WCDMA（联通3g）等网络状态的信息  -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--获取wifi网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--获取sd卡写的权限，用于文件上传和下载-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--允许读取手机状态 用于创建BmobInstallation-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
 
     <application
         android:allowBackup="true"
@@ -12,41 +27,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FoodDetail"
+        <activity android:name=".Interface.FoodDetail"
             android:theme="@style/FoodDetailTheme">
         </activity>
-        <activity android:name=".SceneDetail"
+        <activity android:name=".Interface.SceneDetail"
             android:theme="@style/SceneDetailTheme">
         </activity>
-        <activity android:name=".FoodMain">
+        <activity android:name=".Interface.FoodMain">
         </activity>
-        <activity android:name=".SceneMain">
+        <activity android:name=".Interface.SceneMain">
         </activity>
-        <activity android:name=".ShopMain">
+        <activity android:name=".Interface.ShopMain">
         </activity>
-        <activity android:name=".ShopDetail"
+        <activity android:name=".Interface.ShopDetail"
             android:theme="@style/ShopDetailTheme">
         </activity>
-        <activity android:name=".AmuseMain">
+        <activity android:name=".Interface.AmuseMain">
         </activity>
-        <activity android:name=".AmuseDetail"
+        <activity android:name=".Interface.AmuseDetail"
             android:theme="@style/AmuseDetailTheme">
         </activity>
-        <activity android:name=".ApartmentMain">
+        <activity android:name=".Interface.ApartmentMain">
         </activity>
-        <activity android:name=".ApartmentDetail"
+        <activity android:name=".Interface.ApartmentDetail"
             android:theme="@style/ApartmentDetailTheme">
         </activity>
-        <activity android:name=".HospitalDetail"
+        <activity android:name=".Interface.HospitalDetail"
             android:theme="@style/HosptialDetailTheme">
         </activity>
-        <activity android:name=".HospitalMain">
+        <activity android:name=".Interface.HospitalMain">
         </activity>
-        <activity android:name=".WebViewActivity">
+        <activity android:name=".Interface.WebViewActivity">
         </activity>
 
         <activity
-            android:name=".LauncherActivity"
+            android:name=".Interface.LauncherActivity"
             android:theme="@style/LauncherActivityTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -54,13 +69,22 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".Interface.MainActivity">
         </activity>
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
                 <!--<action android:name="android.intent.action.VIEW"/>-->
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
+
+        <activity android:name=".Interface.SignInActivity"></activity>
+        <activity android:name=".Interface.SignUpActivity"></activity>
+
+
+        <provider
+            android:name="cn.bmob.v3.util.BmobContentProvider"
+            android:authorities="com.example.haikou.BmobContentProvider">
+        </provider>
 
     </application>
 
