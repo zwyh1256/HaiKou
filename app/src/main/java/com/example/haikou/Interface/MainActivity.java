@@ -55,15 +55,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //TopButton
-//        FloatingActionButton top = (FloatingActionButton)findViewById(R.id.top);
-//        top.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view){
-//                RecyclerView recyclerView = (RecyclerView)findViewById(R.id.food_recycler_view);
-//                recyclerView.smoothScrollToPosition(0);
-//            }
-//        });
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -80,6 +71,25 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                Intent intent;
+                int id = menuItem.getItemId();
+                switch (id){
+                    case R.id.nav_home:
+                        break;
+                    case R.id.nav_setting:
+                        intent = new Intent(MainActivity.this,FoodMain.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.nav_about:
+                        intent = new Intent(MainActivity.this, SceneMain.class);
+                        startActivity(intent);
+                        break;
+                     default:
+                         break;
+                }
+
+
                 mDrawerLayout.closeDrawers();
                 return true;
             }

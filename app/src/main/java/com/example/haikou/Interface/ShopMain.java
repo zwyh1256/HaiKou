@@ -51,34 +51,17 @@ public class ShopMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_shop);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("购物");
         setSupportActionBar(toolbar);
-
-        FloatingActionButton top = (FloatingActionButton)findViewById(R.id.top);
-        top.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                RecyclerView recyclerView = (RecyclerView)findViewById(R.id.shop_recycler_view);
-                recyclerView.smoothScrollToPosition(0);
-            }
-        });
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        NavigationView navView = (NavigationView)findViewById(R.id.nav_view);
+
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_1);
         }
-        navView.setCheckedItem(R.id.nav_home);
-        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                mDrawerLayout.closeDrawers();
-                return true;
-            }
-        });
 
         initshops();
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.shop_recycler_view);
@@ -119,6 +102,17 @@ public class ShopMain extends AppCompatActivity {
         }).start();
     }
 
+    private void ScrollTop(){
+        FloatingActionButton top = (FloatingActionButton)findViewById(R.id.top);
+        top.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                RecyclerView recyclerView = (RecyclerView)findViewById(R.id.food_recycler_view);
+                recyclerView.smoothScrollToPosition(0);
+            }
+        });
+    }
+
     private void initshops(){
         shopList.clear();
         for(int i = 0;i < 50;i++){
@@ -138,7 +132,7 @@ public class ShopMain extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
+                finish();
                 break;
             case R.id.search:
                 Toast.makeText(this, "You clicked Search", Toast.LENGTH_SHORT).

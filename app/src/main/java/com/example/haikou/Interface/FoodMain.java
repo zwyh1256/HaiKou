@@ -51,31 +51,20 @@ public class FoodMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_food);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("美食");
         setSupportActionBar(toolbar);
 
         ScrollTop();
 
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout_food);
 
-        NavigationView navView = (NavigationView)findViewById(R.id.nav_view);
+
 
         ActionBar actionBar = getSupportActionBar();                                                    //HomeAsUp按钮
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_1);
+            //actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_1);
         }
-
-
-        navView.setCheckedItem(R.id.nav_home);
-        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-                mDrawerLayout.closeDrawers();
-                return true;
-            }
-        });
 
 
 
@@ -139,54 +128,6 @@ public class FoodMain extends AppCompatActivity {
         });
     }
 
-//    private Menu mHome,mSetting,mAbout;
-//    private void initLeftMenu() {
-//        mHome = (Menu) findViewById(R.id.nav_home);
-//        mSetting = (Menu) findViewById(R.id.nav_setting);
-//        mAbout = (Menu) findViewById(R.id.nav_about);
-//
-//        mHome.setOnClickListener(onLeftMenuClickListener);
-//        mSetting.setOnClickListener(onLeftMenuClickListener);
-//        mAbout.setOnClickListener(onLeftMenuClickListener);
-//
-//        mHome.setSelected(true);
-//    }
-//
-//    private View.OnClickListener onLeftMenuClickListener = new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            if (currentSelectItem != v.getId()) {//防止重复点击
-//                currentSelectItem=v.getId();
-//                noItemSelect();
-//
-//                switch (v.getId()) {
-//                    case R.id.rl_home:
-//                        rlHome.setSelected(true);
-//                        contentFragment.setContent("这是首页");
-//                        break;
-//                    case R.id.rl_gift:
-//                        rlGift.setSelected(true);
-//                        contentFragment.setContent("这是礼物兑换");
-//                        break;
-//                    case R.id.rl_share:
-//                        rlShare.setSelected(true);
-//                        contentFragment.setContent("这是我的分享");
-//                        break;
-//                }
-//                mDrawerLayout.closeDrawer(Gravity.LEFT);
-//            }
-//        }
-//    };
-//
-//    private void noItemSelect(){
-//        rlHome.setSelected(false);
-//        rlGift.setSelected(false);
-//        rlShare.setSelected(false);
-//    }
-
-
-
-
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar,menu);
@@ -197,7 +138,7 @@ public class FoodMain extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
+                finish();
                 break;
             case R.id.search:
                 Toast.makeText(this, "You clicked Search", Toast.LENGTH_SHORT).

@@ -25,7 +25,7 @@ public class LauncherActivity extends AppCompatActivity {
         Bmob.initialize(this, "0673f4609a1aae936e4888ea0b19d01c");
 
 
-        Intent intent = new Intent(LauncherActivity.this, SignInActivity.class);
+        Intent intent = new Intent(LauncherActivity.this, MainActivity.class);
         LauncherActivity.this.startActivity(intent);
 
         new Thread( new Runnable( ) {
@@ -42,14 +42,6 @@ public class LauncherActivity extends AppCompatActivity {
                         }
                         LauncherActivity.this.finish();
 
-//                        Intent intent = new Intent(LauncherActivity.this, SceneMain.class);
-//                        LauncherActivity.this.startActivity(intent);
-//
-//                        Intent intent = MainActivity.class.newInstance(LauncherActivity.this);
-//
-//                        //Intent intent = MainActivity.newInstance(LauncherActivity.this);
-//                        startActivity(intent);
-//                        LauncherActivity.this.finish();
 
                     }
                 });
